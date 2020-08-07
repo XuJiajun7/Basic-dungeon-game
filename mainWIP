@@ -1,0 +1,65 @@
+import javax.swing.*;
+import java.io.*;
+
+class create {
+	
+	public static void main(String args[]) {
+		//Initialize the dungeon grid
+		String dungeon[][] = { { "X", "O", "O", "O", "O", "O", "O"},
+							   { "O", "O", "O", "O", "O", "O", "O"},
+							   { "O", "O", "O", "O", "O", "O", "O"},
+							   { "O", "O", "O", "O", "O", "O", "O"},
+							   { "O", "O", "O", "O", "O", "O", "O"},
+							   { "O", "O", "O", "O", "O", "O", "O"} };
+		//put the player on the top left square and ask for player directions
+		String player = dungeon[0][0]; 
+		
+		String line = ""; 
+		
+		while (!(line.equalsIgnoreCase(("Stop")))) {
+			
+			line = JOptionPane.showInputDialog( "Please Enter a direction to move: ");
+			
+			if(line == "w") {
+				
+				if(!isOffGrid()) {
+					
+					swap();
+				
+				} else { System.out.println("Moved off grid");
+				
+					break;
+					
+				}
+			}
+			/*
+			 * if input equals w move up, s down, d right, a left. then swap and 
+			 * erase previous player position. then print new grid
+			 */
+			
+			for(int i = 0; i < 6; i++) {
+				
+				for(int j = 0; j < 6; j++) {
+					
+					System.out.print(dungeon[i][j] + " ");
+					
+				}
+				
+				System.out.print("\n");
+			}
+		}
+		
+	}
+	
+	
+	public static boolean isOffGrid() { //check if player moves off grid
+		
+		return false;
+		
+	}
+	
+	public static void swap() {
+		
+	}
+	
+}
